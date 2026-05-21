@@ -1,5 +1,5 @@
 # SalesTailwindApp
-A small demo storefront built for learning and demos. Demonstrates product, shopping cart, checkout flows, and AI assistant. Leverages server-side rendering, signals, routes, services, states, client-side caching, and dynamic forms as a service driven by schemas, where data is returned as models. Styled using Tailwind CSS and DaisyUI.
+A small demo storefront built for learning and demos. Demonstrates AI assistant, client-side caching, dynamic form generation, product, shopping cart, and checkout flows. Leverages server-side rendering, signals, routes, services, states, client-side caching, and dynamic forms as a service driven by schemas, where data is returned as models. Styled using Tailwind CSS and DaisyUI.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
 
