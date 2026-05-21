@@ -65,11 +65,38 @@ For more information on using the Angular CLI, including detailed command refere
 - This project uses Angular services to encapsulate API calls and business logic (for example, `product-service.ts`, `image-service.ts`, and `cart-service.ts`).
 - Services are singletons by default (provided in root) and are intended to be injected into components or stores to retrieve or update data.
 
+- **AI service:** `ai-service.ts` — provides conversational AI helpers used by features that need chat or assistant-style interactions. Typical responsibilities:
+	- managing conversation sessions and message formatting
+	- calling backend LLM endpoints or server-side AI adapters
+	- returning structured responses (text, suggested actions, or cards)
+	- handling streaming or incremental responses when supported
+
+	Example usage (inject into a component or store):
+
+	```ts
+	// constructor(private ai: AiService) {}
+	const reply = await this.ai.sendMessage({ conversationId, text: 'Hello' });
+	```
+
 ## Stores
 
 - **Location:** src/stores
 - Stores provide a lightweight, local state management layer and are used for client-side caching and sharing state between components without a full global store solution.
 - Examples: `product.store.ts` caches product lists and details; `image.store.ts` caches images and related metadata to avoid repeated network requests.
+
+- **AI conversation store:** `ai-conversation.store.ts` — maintains conversational state for AI features. Responsibilities and API (typical):
+	- persist conversation history (messages, roles, timestamps)
+	- expose observables/selectors for UI binding (e.g., `messages$`)
+	- helpers: `startConversation()`, `appendMessage(msg)`, `getConversation(id)`, `clearConversation(id)`
+
+	Example usage:
+
+	```ts
+	// constructor(private aiConvoStore: AiConversationStore) {}
+	this.aiConvoStore.startConversation('checkout-help');
+	this.aiConvoStore.appendMessage({ role: 'user', text: 'How do I apply a discount?' });
+	this.aiConvoStore.messages$.subscribe(messages => { /* render chat */ });
+	```
 
 ## Client-side caching (via stores)
 
