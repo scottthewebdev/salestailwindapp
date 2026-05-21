@@ -3,6 +3,9 @@ A small demo storefront built for learning and demos. Demonstrates AI assistant,
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
 
+## Client side caching
+Going from O(u(n+x)) to O(u(n)) means you have successfully eliminated \(x\) as an independent scaling bottleneck for your system.
+
 ## Development server
 
 To start a local development server, run:
