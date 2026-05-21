@@ -5,8 +5,10 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Client side caching
 Let: n be the number of required calls to the server for products and images; x be the number of calls to the server for selected products and images; u be the number of users logged into the application. 
+
 Without client-side caching: O(u(n+x))
 With client-side caching: O(u(n))
+
 Going from O(u(n+x)) to O(u(n)) means you have successfully eliminated \(x\) as an independent scaling bottleneck for your system.
 
 Here are the primary architectural and operational benefits of this optimization:
